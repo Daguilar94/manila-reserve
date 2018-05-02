@@ -1,0 +1,2 @@
+class Coworker < ApplicationRecord
+end
