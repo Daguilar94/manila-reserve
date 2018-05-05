@@ -31,14 +31,14 @@ To run this project you need to install the following:
     $ yarn install
     ```
 
-4. Create a file `config/application.yml` with the following content:
+4. Create a file `config/application.yml` with the following content: (this is still pending)
 
     ```
-    AWS_ACCESS_KEY_ID: AKIAJI7J6PNYB52V32NQ
-    AWS_SECRET_ACCESS_KEY:     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
-    AWS_REGION: us-east-1
-    S3_BUCKET_NAME: thy-dev
-    HOSTNAME: lvh.me:3000
+    AWS_ACCESS_KEY_ID: 
+    AWS_SECRET_ACCESS_KEY:    
+    AWS_REGION: 
+    S3_BUCKET_NAME: 
+    HOSTNAME: 
     ```
 
 5. Create the database and run the migrations by executing:
@@ -55,7 +55,7 @@ The workflow for contributing to this project is the following:
 
 **1. Identify an issue you want to work on**
 
-Checkout our [Trello board]() to identify the issues that are ready for work (they are ordered by priority). Once you have selected one, assign it to yourself (you can`t have more than **two** issues assigned to you at the same time).
+Checkout our [Trello board](https://trello.com/b/Wdj6DCoD/manila) to identify the issues that are ready for work (they are ordered by priority). Once you have selected one, assign it to yourself (you can`t have more than **two** issues assigned to you at the same time).
 
 **2. Create a branch**
 
