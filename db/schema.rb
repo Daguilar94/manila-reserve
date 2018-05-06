@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_05_235442) do
+ActiveRecord::Schema.define(version: 2018_05_06_204627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,12 +22,37 @@ ActiveRecord::Schema.define(version: 2018_05_05_235442) do
     t.text "description"
   end
 
+  create_table "coworkers_tours", id: false, force: :cascade do |t|
+    t.bigint "tour_id"
+    t.bigint "coworker_id"
+    t.index ["coworker_id"], name: "index_coworkers_tours_on_coworker_id"
+    t.index ["tour_id"], name: "index_coworkers_tours_on_tour_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "reviewable_type"
+    t.bigint "reviewable_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable_type_and_reviewable_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "tours", force: :cascade do |t|
     t.string "name"
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
+  end
+
+  create_table "tours_users", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "tour_id"
+    t.index ["tour_id"], name: "index_tours_users_on_tour_id"
+    t.index ["user_id"], name: "index_tours_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +67,9 @@ ActiveRecord::Schema.define(version: 2018_05_05_235442) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "coworkers_tours", "coworkers", on_delete: :cascade
+  add_foreign_key "coworkers_tours", "tours", on_delete: :cascade
+  add_foreign_key "reviews", "users"
+  add_foreign_key "tours_users", "tours", on_delete: :cascade
+  add_foreign_key "tours_users", "users", on_delete: :cascade
 end
