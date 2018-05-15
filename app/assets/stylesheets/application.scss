@@ -16,3 +16,13 @@
 @import "reviews";
 @import "tours";
 @import "users";
+@import "birds";
+
+$background-color: #222;
+$font-color: #a9a9a9;
+
+body {
+  background-color: $background-color;
+  color: $font-color;
+  font-family: 'Quicksand', sans-serif;
+}
