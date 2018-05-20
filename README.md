@@ -10,6 +10,7 @@ To run this project you need to install the following:
 * PostgreSQL
 * Node.js ([instructions](https://github.com/makeitrealcamp/node-installation))
 * Yarn ([instructions](https://yarnpkg.com/en/docs/install))
+* MiniMagick ([instructions](https://github.com/janko-m/image_processing/blob/master/doc/minimagick.md#methods))
 
 ## Setup
 
@@ -34,11 +35,11 @@ To run this project you need to install the following:
 4. Create a file `config/application.yml` with the following content: (this is still pending)
 
     ```
-    AWS_ACCESS_KEY_ID: 
+    AWS_ACCESS_KEY_ID:
     AWS_SECRET_ACCESS_KEY:    
-    AWS_REGION: 
-    S3_BUCKET_NAME: 
-    HOSTNAME: 
+    AWS_REGION:
+    S3_BUCKET_NAME:
+    HOSTNAME:
     ```
 
 5. Create the database and run the migrations by executing:

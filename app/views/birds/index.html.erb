@@ -1,0 +1,141 @@
+<div class="birds-page">
+
+  <div id="birds" class="carousel slide birds-carousel w-95" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#birds" data-slide-to="0" class="active"></li>
+      <li data-target="#birds" data-slide-to="1"></li>
+      <li data-target="#birds" data-slide-to="2"></li>
+      <li data-target="#birds" data-slide-to="3"></li>
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://andamanbeachcombing.com/wp-content/uploads/2017/04/Bird-Watching-at-Andaman.jpg" alt="Los Angeles">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Img1</h5>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://vtecostudies.org/wp-content/uploads/2014/06/fbmp-banner-3.jpg" alt="Chicago">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Img2</h5>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://www.hambletonhall.com/wp-content/uploads/2016/08/bird-watching.jpg" alt="New York">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Img3</h5>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://www.discovertasmania.com.au/media/images/what-to-do/Nature-And-Wildlife-1800x630.jpg" alt="New York">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Img4</h5>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#birds" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#birds" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+
+  <h1 class="text-center font-weight-bold mt-4">Bird watching</h1>
+
+  <div class="info-container container">
+    <div class="row">
+      <div class="col-sm-12 col-lg-6">
+        <div class="info-box">
+          <h3 class="font-weight-bold text-center">Bird species</h3>
+          <div class="info-description text-center mt-3">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat incidunt dolore atque! Consequuntur autem quos optio eum doloribus vel ipsum magnam. Voluptatibus eaque minus dolorem, ad voluptatem voluptatum, repudiandae error.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat incidunt dolore atque! Consequuntur autem quos optio eum doloribus vel ipsum magnam. Voluptatibus eaque minus dolorem, ad voluptatem voluptatum, repudiandae error.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat incidunt dolore atque! Consequuntur autem quos optio eum doloribus vel ipsum magnam. Voluptatibus eaque minus dolorem, ad voluptatem voluptatum, repudiandae error.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-lg-6">
+        <div class="info-box">
+          <h3 class="font-weight-bold text-center">Who will be benefited?</h3>
+          <div class="info-description text-center mt-3">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat incidunt dolore atque! Consequuntur autem quos optio eum doloribus vel ipsum magnam. Voluptatibus eaque minus dolorem, ad voluptatem voluptatum, repudiandae error.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat incidunt dolore atque! Consequuntur autem quos optio eum doloribus vel ipsum magnam. Voluptatibus eaque minus dolorem, ad voluptatem voluptatum, repudiandae error.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat incidunt dolore atque! Consequuntur autem quos optio eum doloribus vel ipsum magnam. Voluptatibus eaque minus dolorem, ad voluptatem voluptatum, repudiandae error.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- San Rafael map -->
+
+  <h3 class="font-weight-bold text-cente4 mt-5 text-center">Location</h3>
+  <div id="map" class="mt-3"></div>
+
+  <div class="info-container container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="info-box">
+          <h3 class="font-weight-bold text-center">Why San Rafael?</h3>
+          <div class="info-description text-center mt-3">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat incidunt dolore atque! Consequuntur autem quos optio eum doloribus vel ipsum magnam. Voluptatibus eaque minus dolorem, ad voluptatem voluptatum, repudiandae error.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="container d-flex <%= current_user ? 'justify-content-between' : 'justify-content-center'%>"> -->
+  <div class="text-center my-3">
+    <h3 class="font-weight-bold text-center mb-3">Bird species present in San Rafael</h3>
+    <% if current_user %>
+      <%=link_to new_bird_path do%>
+        <button type="button" class="btn btn-outline-light">Create especie</button>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="birds-images-container row px-4">
+    <%@birds.map do |bird|%>
+      <div class="bird-image col-sm-12 col-md-6 col-lg-4 text-center">
+        <%= image_tag bird.profile_image%>
+        <h4><%= bird.popular_name %></h4>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+function initMap() {
+  var uluru = {lat: 6.307802, lng: -75.072468};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: uluru
+  });
+  var marker = new google.maps.Marker({
+    position: uluru,
+    map: map
+  });
+}
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUu9h86XKMPNhPyY3B0-q3dLrBvSW0pA0&callback=initMap">
+</script>

@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   end
   resources :birds
 
-  root to: "tours#index"
+  root to: "birds#index"
 end
