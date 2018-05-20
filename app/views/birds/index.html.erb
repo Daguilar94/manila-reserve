@@ -103,6 +103,23 @@
       </div>
     </div>
   </div>
+  <!-- <div class="container d-flex <%= current_user ? 'justify-content-between' : 'justify-content-center'%>"> -->
+  <div class="text-center my-3">
+    <h3 class="font-weight-bold text-center mb-3">Bird species present in San Rafael</h3>
+    <% if current_user %>
+      <%=link_to new_bird_path do%>
+        <button type="button" class="btn btn-outline-light">Create especie</button>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="birds-images-container row px-4">
+    <%@birds.map do |bird|%>
+      <div class="bird-image col-sm-12 col-md-6 col-lg-4 text-center">
+        <%= image_tag bird.profile_image%>
+        <h4><%= bird.popular_name %></h4>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <script type="text/javascript">

@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Manila Reserve - San Rafael</title>
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manila Reserve - San Rafael</title>
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-      <a class="navbar-brand" href="<%= root_path %>">Manila Logo</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-       <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="<%= birds_path %>">Bird watching</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<%= tours_path %>">Tours <span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
+<body>
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <a class="navbar-brand" href="<%= root_path %>">Manila Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="<%= birds_path %>">Bird watching</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= tours_path %>">Tours <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <div class="nav navbar-nav navbar-left">
+        <% if user_signed_in? %>
+
+        <%= link_to "Sign out", destroy_user_session_path, method: 'delete', class: "nav-link" %>
+        <% else %>
+        <%= link_to "Admin", user_session_path, class: "nav-link" %>
+        <% end %>
       </div>
-    </nav>
-    <%= yield %>
-  </body>
+    </div>
+  </nav>
+  <%= yield %>
+</body>
 </html>
