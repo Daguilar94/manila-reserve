@@ -35,14 +35,14 @@
       transition: .3s ease-in-out;
     };
 
-    h4 {
+    .bird-more-info {
       position: absolute;
       color: #fff;
-      bottom: 10%;
+      bottom: 50%;
       opacity: 0;
       transition: opacity .3s ease-in-out;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, 50%);
     }
   }
 
@@ -51,7 +51,7 @@
       opacity: 0.6;
     };
 
-    h4 {
+    .bird-more-info {
       opacity: 1;
     };
 
