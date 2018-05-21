@@ -1,0 +1,63 @@
+<h1 class="text-center my-3"> <%= @bird.new_record? ? "New Specie" : "Edit Specie" %> </h1>
+
+<% if !@bird.errors.empty? %>
+  <% @bird.errors.full_messages.each do |error| %>
+    <p class="text-center text-danger my-1"><%= error %> </p>
+  <%end%>
+<% end %>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+
+      <%= form_for @bird, :html => {:class => "col-11 col-md-8"} do |f|%>
+      <div class="row justify-content-center">
+        <div class="form-group col-12 col-md-6">
+          <%= f.label :popular_name %>
+          <%= f.text_field :popular_name, class: "form-control" %>
+        </div>
+
+        <div class="form-group col-12 col-md-6">
+          <%= f.label :cientific_name %>
+          <%= f.text_field :cientific_name, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="form-group col-12">
+          <%= f.label :description %>
+          <%= f.text_area :description, size: "60x5", class: "form-control" %>
+        </div>
+      </div>
+
+        <div class="row justify-content-center">
+          <div class="form-group col-12 col-md-6">
+            <%= f.label :status %>
+            <% statuses = Bird.statuses.keys.map { |s| [s.humanize, s] } %>
+            <%= f.select :status, statuses, {include_blank: true}, {class: "form-control"} %>
+          </div>
+          <div class="form-group col-12 col-md-6">
+            <%= f.label :size %>
+            <% sizes = Bird.sizes.keys.map { |s| [s.humanize, s] } %>
+            <%= f.select :size, sizes, {include_blank: true}, {class: "form-control"} %>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="form-group  col-12 col-md-6">
+            <%= f.label :profile_image %>
+            <%= f.file_field :profile_image, class: "form-control" %>
+          </div>
+          <div class="form-group  col-12 col-md-6">
+            <%= f.label :specie_images %>
+            <%= f.file_field :specie_images, multiple: true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <%= link_to "Cancel", @bird.new_record? ? birds_path : bird_path(@bird),  class:"btn btn-outline-secondary" %>
+          <%=f.submit @bird.new_record? ? "Create" : "Edit", class: "btn btn-outline-success"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

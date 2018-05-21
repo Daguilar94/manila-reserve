@@ -22,38 +22,52 @@
     height: 500px;
     background-color: grey;
   }
-  .bird-image {
-    box-sizing: border-box;
-    padding: 0.5em;
-    cursor: pointer;
 
-    img {
-      width: 100%;
-      -webkit-transform: scale(1);
-      transform: scale(1);
-      -webkit-transition: .3s ease-in-out;
-      transition: .3s ease-in-out;
-    };
+  .birds-images-container {
+    .bird-image {
+      box-sizing: border-box;
+      padding: 0.5em;
+      cursor: pointer;
 
-    .bird-more-info {
-      position: absolute;
-      color: #fff;
-      bottom: 50%;
-      opacity: 0;
-      transition: opacity .3s ease-in-out;
-      left: 50%;
-      transform: translate(-50%, 50%);
+      img {
+        border-radius: 3px;
+        width: 100%;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+      };
+
+      .bird-more-info {
+        position: absolute;
+        color: #fff;
+        bottom: 50%;
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        left: 50%;
+        transform: translate(-50%, 50%);
+      }
+    }
+
+    .bird-image:hover {
+      img {
+        opacity: 0.6;
+      };
+
+      .bird-more-info {
+        opacity: 1;
+      };
     }
   }
+}
 
-  .bird-image:hover {
-    img {
-      opacity: 0.6;
-    };
-
-    .bird-more-info {
-      opacity: 1;
-    };
-
+.bird-page {
+  .bird-images-container {
+    .bird-show {
+      img {
+        border-radius: 3px;
+        width: 100%;
+      }
+    }
   }
 }

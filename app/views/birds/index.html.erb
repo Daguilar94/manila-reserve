@@ -1,5 +1,5 @@
+<%= render "layouts/messages" %>
 <div class="birds-page">
-
   <div id="birds" class="carousel slide birds-carousel w-95" data-ride="carousel">
 
     <!-- Indicators -->
@@ -51,7 +51,7 @@
     </a>
   </div>
 
-  <h1 class="text-center font-weight-bold mt-4">Bird watching</h1>
+  <h1 class="text-success text-center font-weight-bold mt-4">Bird watching</h1>
 
   <div class="info-container container-fluid ">
     <div class="row">
@@ -107,7 +107,7 @@
     <h3 class="font-weight-bold text-center mb-3">Bird species present in San Rafael</h3>
     <% if current_user %>
       <%=link_to new_bird_path do%>
-        <button type="button" class="btn btn-outline-success">Create especie</button>
+        <button type="button" class="btn btn-outline-success">Create specie</button>
       <% end %>
     <% end %>
   </div>

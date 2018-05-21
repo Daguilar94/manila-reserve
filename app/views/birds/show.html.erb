@@ -1,1 +1,46 @@
-<h1><%=@bird.popular_name%></h1>
+<div class="bird-page">
+  <div class="container-fluid">
+    <!-- <div class="position-relative text-center py-3 px-2 d-flex justify-content-between align-items-center"> -->
+    <div class="row py-3 px-2 align-items-center">
+      <div class="col-12 col-md-4 text-center">
+        <%= link_to "Back", birds_path, class:"btn btn-outline-light" %>
+      </div>
+      <h1 class="text-center col-12 col-md-4"><%=@bird.popular_name%></h1>
+      <% if @current_user %>
+      <div class="col-12 col-md-4 text-right mx-auto text-center">
+        <%=  link_to "Edit", edit_bird_path(@bird), class:" btn btn-outline-light"%>
+        <%=  link_to "Delete", bird_path(@bird), method: :delete , data: {confirm: "You sure?"}, class:"btn btn-outline-danger"%>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="row justify-content-center border-top border-bottom border-success border-Left">
+      <div class="text-center col-12 col-md-4 my-2">
+        <h3 class="font-weight-bold">Scientific name</h3>
+        <%= @bird.cientific_name %>
+      </div>
+      <div class="text-center col-12 col-md-4 my-2">
+        <h3 class="font-weight-bold">size</h3>
+        <%= @bird.size %>
+      </div>
+      <div class="text-center col-12 col-md-4 my-2">
+        <h3 class="font-weight-bold">Extinction status</h3>
+        <%= @bird.status.humanize %>
+      </div>
+    </div>
+    <div class="my-4 row justify-content-center">
+      <div class="col-12 col-md-8 text-center">
+        <h3>Description</h3>
+        <p class="mt-3"><%= @bird.description  %></p>
+      </div>
+    </div>
+    <div class="bird-images-container row justify-content-center px-4">
+      <%@bird.specie_images.map do |pic|%>
+      <div class="bird-show text-center col-12 col-lg-10 p-2">
+        <%= image_tag pic%>
+      </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>
