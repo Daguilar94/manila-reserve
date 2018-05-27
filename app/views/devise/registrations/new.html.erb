@@ -1,67 +1,74 @@
-<h1 class="text-success text-center font-weight-bold mt-4">Sign up</h1>
+<h1 class="text-success text-center font-weight-bold mt-4">New user</h1>
 
 <div class="container-fluid">
 
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <!-- <%= devise_error_messages! %> -->
 
   <div class="row justify-content-center justify-content-center">
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-xs-12 col-md-4">
       <div class="field form-group">
-        <%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control #{input_status_class(resource, :name)}" %>
+        <%= invalid_msg(resource, :name) if is_invalid?(resource, :name) %>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-xs-12 col-md-4">
       <div class="field form-group">
-        <%= f.label :lastName %><br />
-        <%= f.text_field :lastName, autofocus: true, autocomplete: "last name", class: "form-control" %>
+        <%= f.label :lastName %>
+        <%= f.text_field :lastName, autofocus: true, autocomplete: "last name", class: "form-control #{input_status_class(resource, :lastName)}" %>
+        <%= invalid_msg(resource, :lastName) if is_invalid?(resource, :lastName) %>
       </div>
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-xs-12 col-sm-2">
+    <div class="col-xs-12 col-md-2">
       <div class="field form-group">
-        <%= f.label :age %>
-        <%= f.number_field :age, autofocus: true, autocomplete: "age", class: "form-control" %>
+        <%= f.label :birthDay %>
+        <%= f.date_field :birthDay, autofocus: true, autocomplete: "birthDay", class: "form-control #{input_status_class(resource, :birthDay)}" %>
+        <%= invalid_msg(resource, :birthDay) if is_invalid?(resource, :birthDay) %>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-3">
+    <div class="col-xs-12 col-md-3">
       <div class="field form-group">
-        <%= f.label :personalId %><br />
-        <%= f.text_field :personalId, autofocus: true, autocomplete: "age", class: "form-control" %>
+        <%= f.label :personalId %>
+        <%= f.text_field :personalId, autofocus: true, autocomplete: "personal id", class: "form-control #{input_status_class(resource, :personalId)}" %>
+        <%= invalid_msg(resource, :personalId) if is_invalid?(resource, :personalId) %>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-3">
+    <div class="col-xs-12 col-md-3">
       <div class="field form-group">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control #{input_status_class(resource, :email)}" %>
+        <%= invalid_msg(resource, :email) if is_invalid?(resource, :email) %>
       </div>
     </div>
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-xs-12 col-md-4">
       <div class="field form-group">
         <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control #{input_status_class(resource, :password)}" %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        <em class="text-muted">(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+        <%= invalid_msg(resource, :password) if is_invalid?(resource, :password) %>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-xs-12 col-md-4">
       <div class="field form-group">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control #{input_status_class(resource, :password_confirmation)}" %>
+        <%= invalid_msg(resource, :password_confirmation) if is_invalid?(resource, :password_confirmation) %>
       </div>
     </div>
   </div>
 </div>
 <div class="row justify-content-center form-group">
   <div class="actions text-center">
-    <%= f.submit "Sign up", class: "btn btn-success" %>
+    <%= f.submit "Create", class: "btn btn-success" %>
   </div>
 </div>
 <% end %>
