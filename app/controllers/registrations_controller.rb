@@ -4,17 +4,18 @@ class RegistrationsController < Devise::RegistrationsController
 
   def new
     super
-    puts "WHAAAAAT!!!!"
-    # puts current_user.role
+    puts "User created"
+  end
 
+  def update
+    super
+    puts "Profile updated"
   end
 
   protected
-  # def after_update_path_for(resource)
-  #   articles_path
-  # end
+
   def redirect_unless_admin
-    unless current_user
+    unless current_user && current_user.role = "admin"
       redirect_to root_path
     end
   end

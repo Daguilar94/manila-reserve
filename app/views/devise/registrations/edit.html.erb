@@ -1,10 +1,10 @@
-<h1 class="text-success text-center font-weight-bold mt-4">Edit <%= resource_name.to_s.humanize %></h1>
+<h1 class="text-success text-center font-weight-bold mt-4">Edit profile</h1>
 <div class="container-fluid">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 <!-- <%= devise_error_messages! %> -->
 
-<div class="row justify-content-center justify-content-center">
+<div class="row justify-content-center">
   <div class="col-xs-12 col-md-4">
     <div class="field form-group">
       <%= f.label :name %>
@@ -14,14 +14,21 @@
   </div>
   <div class="col-xs-12 col-md-4">
     <div class="field form-group">
-      <%= f.label :lastName %>
-      <%= f.text_field :lastName, autofocus: true, autocomplete: "last name", class: "form-control #{input_status_class(resource, :lastName)}" %>
-      <%= invalid_msg(resource, :lastName) if is_invalid?(resource, :lastName) %>
+      <%= f.label :role %>
+      <%= f.select :role, User.roles.keys.to_a, {}, class: "form-control #{input_status_class(resource, :role)}" %>
+      <%= invalid_msg(resource, :role) if is_invalid?(resource, :role) %>
     </div>
   </div>
 </div>
 
-<div class="row justify-content-center justify-content-center">
+<div class="row justify-content-center">
+  <div class="col-xs-12 col-md-4">
+    <div class="field form-group">
+      <%= f.label :lastName, "Last name" %>
+      <%= f.text_field :lastName, autofocus: true, autocomplete: "last name", class: "form-control #{input_status_class(resource, :lastName)}" %>
+      <%= invalid_msg(resource, :lastName) if is_invalid?(resource, :lastName) %>
+    </div>
+  </div>
   <div class="col-xs-12 col-md-4">
     <div class="field form-group">
       <%= f.label :email %>
@@ -29,11 +36,24 @@
       <%= invalid_msg(resource, :email) if is_invalid?(resource, :email) %>
     </div>
   </div>
+</div>
+
+<div class="row justify-content-center">
   <div class="col-xs-12 col-md-4">
     <div class="field form-group">
-      <%= f.label :current_password %>
-      <%= f.password_field :current_password, autocomplete: "off", class: "form-control #{input_status_class(resource, :current_password)}" %>
-      <%= invalid_msg(resource, :current_password) if is_invalid?(resource, :current_password) %>
+      <%= f.label :personalId, "Personal Id" %>
+      <%= f.text_field :personalId, autofocus: true, autocomplete: "personal id", class: "form-control #{input_status_class(resource, :personalId)}" %>
+      <%= invalid_msg(resource, :personalId) if is_invalid?(resource, :personalId) %>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-4">
+    <div class="field form-group">
+      <%= f.label :password %> <i>(Only if you want to change it)</i>
+      <%= f.password_field :password, autocomplete: "off", class: "form-control #{input_status_class(resource, :password)}" %>
+      <% if @minimum_password_length %>
+      <em class="text-muted">(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= invalid_msg(resource, :password) if is_invalid?(resource, :password) %>
     </div>
   </div>
 </div>
@@ -42,15 +62,12 @@
 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 <% end %>
 
-<div class="row justify-content-center justify-content-center">
+<div class="row justify-content-center">
   <div class="col-xs-12 col-md-4">
     <div class="field form-group">
-      <%= f.label :password %> <i>(Only if you want to change it)</i>
-      <%= f.password_field :password, autofocus: true, autocomplete: "email", class: "form-control #{input_status_class(resource, :password)}" %>
-      <% if @minimum_password_length %>
-      <em class="text-muted">(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %>
-      <%= invalid_msg(resource, :password) if is_invalid?(resource, :password) %>
+      <%= f.label :birthDay %>
+      <%= f.date_field :birthDay, autofocus: true, autocomplete: "birthDay", class: "form-control #{input_status_class(resource, :birthDay)}" %>
+      <%= invalid_msg(resource, :birthDay) if is_invalid?(resource, :birthDay) %>
     </div>
   </div>
   <div class="col-xs-12 col-md-4">
@@ -58,6 +75,16 @@
       <%= f.label :password_confirmation %> <i>(Only if you want to change it)</i>
       <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control #{input_status_class(resource, :password_confirmation)}" %>
       <%= invalid_msg(resource, :password_confirmation) if is_invalid?(resource, :password_confirmation) %>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-xs-12 col-md-4">
+    <div class="field form-group">
+      <%= f.label :current_password %> <i>(Needed to edit profile)</i>
+      <%= f.password_field :current_password, autocomplete: "off", class: "form-control #{input_status_class(resource, :current_password)}" %>
+      <%= invalid_msg(resource, :current_password) if is_invalid?(resource, :current_password) %>
     </div>
   </div>
 </div>

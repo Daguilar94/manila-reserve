@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, path: 'auth', controllers: { registrations: :registrations }
-  # devise_for :users, path: 'auth'
+  devise_for :users, controllers: { registrations: :registrations }
   resources :tours, only: [:index, :show] do
     resources :coworkers, only: [:index, :show]
   end
